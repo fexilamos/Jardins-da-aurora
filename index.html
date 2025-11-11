@@ -28,7 +28,7 @@
   <style>
     :root {
       --brand: #0ea5e9;  /* azul contemporâneo */
-      --brand-600: #11bab7;
+      --brand-600: #75aba7;
       --dark: #0b1220;   /* slate muito escuro */
       --muted: #64748b;  /* cinza azulado */
       --bg: #0f172a;     /* fundo escuro para hero/footer */
@@ -63,14 +63,14 @@
     .text-muted { color: var(--muted) !important; }
 
 .btn-outline-custom {
-    color: #11bab7; /* Azul claro */
-    border-color: #11bab7;
+    color: #75aba7; /* Azul claro */
+    border-color: #75aba7;
 }
 
 .btn-outline-custom:hover {
-    background-color: #11bab7;
+    background-color: #75aba7;
     color: white;
-    border-color: #11bab7;
+    border-color: #75aba7;
 }
 
     /* ===== FEATURES ===== */
@@ -83,30 +83,12 @@
       align-items: center;
       gap: 12px;
     }
-    .feature .fi {
-      width: var(--fi-size);
-      height: var(--fi-size);
-      border-radius: 12px;
-      background: #85eae8;
-      display: grid;
-      place-items: center;
-      line-height: 0;
-      padding: 6px;              /* espaço interno para respiração visual */
-      box-sizing: border-box;    /* padding conta dentro de --fi-size */
-      flex: 0 0 var(--fi-size);
-      color: var(--brand);
-      box-shadow: 0 1px 0 rgba(0,0,0,.02) inset;
-    }
-    .feature .fi img,
-    .feature .fi svg {
-      width: 100%;
-      height: 100%;
-      display: block;            /* evita baseline gap */
-      object-fit: contain;      /* garantir escala adequada dentro da caixa */
-    }
-    .feature .fi svg {
-      transform-box:content-box;   /* transforma relativo ao desenho */
-      transform-origin: center;  /* centro geométrico */
+    .feature img {
+      width: 48px;
+      height: 48px;
+      display: block;
+      object-fit: contain;
+      flex: 0 0 48px;
     }
     .feature .ft-title { font-weight: 600; margin: 0; }
     .feature .ft-sub { margin: 0; color: var(--muted); font-size: 0.925rem; }
@@ -169,7 +151,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#inicio" style="padding:0;">
+      <a class="navbar-brand fw-bold" href="#inicio" style="padding:0;">
         <img src="images/nome.png" alt="Jardins da Aurora" style="height:58px;max-width:180px;object-fit:contain;vertical-align:middle;" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Alternar navegação">
@@ -189,7 +171,7 @@
           <li class="nav-item"><a class="nav-link" href="#localizacao">localização</a></li>
           <li class="nav-item"><a class="nav-link" href="#contactos">contactos</a></li>
         </ul>
-        <a class="btn btn-outline-custom" href="#contactos" aria-label="Ir para contactos">Icone</a>
+        
       </div>
     </div>
   </nav>
@@ -232,10 +214,7 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
             <div class="row gy-3">
               <div class="col-12">
                 <div class="feature">
-                  <div class="fi">
-                                        <img src="images/construcao.svg" alt="" style="width: 32px !important; height: auto !important; max-width: none !important;">
-
-                  </div>
+                  <img src="images/construcao 1.png" alt="Nova construção">
                   <div>
                     <p class="ft-title">nova construção</p>
                     <p class="ft-sub"> Ano: 2025</p>
@@ -245,27 +224,21 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
 
               <div class="col-12">
                 <div class="feature">
-                  <div class="fi">
-                    <img src="images/certificado.svg" alt="" style="width: 32px !important; height: auto !important; max-width: none !important;">
-                  </div>
+                  <img src="images/certificado.png" alt="Tipologias">
                   <div>
-                  <p class="ft-title">tipologias</p>
-<p class="ft-sub">T0, T1 e T2</p>
-
+                    <p class="ft-title">tipologias</p>
+                    <p class="ft-sub">T0, T1 e T2</p>
                   </div>
                 </div>
               </div>
 
               <div class="col-12">
                 <div class="feature">
-                  <div class="fi">
-                <img src="images/Parking.svg" alt="" style="width: 32px !important; height: auto !important; max-width: none !important;">
-                  </div>
+                  <img src="images/parking.png" alt="Características">
                   <div>
                     <p class="ft-title">características</p>
-<p class="ft-sub"><u>Edifício:</u> lugares de estacionamento privados, elevador, jardim privado com árvores de fruto, isolamento térmico e acústico e classificação energética A+.<br> <u>Apartamentos:</u> ar condicionado, placa de indução, máquina de lavar loiça, forno, micro-ondas, frigorífico, exaustor, máquina de lavar e secar roupa
-</p>
-
+                    <p class="ft-sub"><u>Edifício:</u> lugares de estacionamento privados, elevador, jardim privado com árvores de fruto, isolamento térmico e acústico e classificação energética A+.<br> <u>Apartamentos:</u> ar condicionado, placa de indução, máquina de lavar loiça, forno, micro-ondas, frigorífico, exaustor, máquina de lavar e secar roupa
+                    </p>
                   </div>
                 </div>
               </div>
@@ -342,12 +315,11 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
                 <li>lugar de estacionamento privativo</li>
               </ul>
               <p>_______________</p>
-                <p class="text-muted">ver fotografias:</p>
+              <p class="text-muted">ver fotografias:</p>
               <div class="d-flex flex-wrap gap-2">
-                
-<button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0A">
-    Jasmim
-</button>
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0A">
+                  Jasmim
+                </button>
                 <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0B">Camélia</button>
                 <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0C">Lírio</button>
                 <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0D">Magnólia</button>
@@ -379,7 +351,6 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
               <div>
                 <p>_______________</p>
                 <p class="text-muted">ver fotografias:</p>
-                
                 <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT1">Margarida</button>
               </div>
             </div>
@@ -406,15 +377,13 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
                 <li>varandas</li>
                 <li>ar condicionado</li>
                 <li>estacionamento privativo</li>
-                
               </ul>
               <p>_______________</p>
-                <p class="text-muted">ver fotografias:</p>
+              <p class="text-muted">ver fotografias:</p>
               <div class="d-flex flex-wrap gap-2">
                 <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT2A">Órquidea</button>
                 <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT2B">Papoila</button>
                 <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT2C">Violeta</button>
-
               </div>
             </div>
           </div>
@@ -611,7 +580,7 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
           </p>
           <div class="d-flex gap-2 flex-wrap">
             <a class="btn btn-outline-secondary" target="_blank" rel="noopener" href="https://maps.app.goo.gl/tCCGqEAgLWqjLULk7">Abrir no Google Maps</a>
-            <a class="btn btn-outline-primary" href="#contactos">Contactar</a>
+            <a class="btn btn-outline-custom" href="#contactos">Contactar</a>
           </div>
         </div>
         <div class="col-lg-6">
@@ -638,7 +607,7 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
           <p class="mb-1"><strong>Email:</strong> <a href="mailto:geral@balaustre.pt">geral@balaustre.pt</a></p>
           <p class="mb-0"><strong>Morada:</strong> Rua S. Sebastião - Maximinos, 27<br>4700-043 Braga</p>
           <div class="d-flex gap-2 mt-3 flex-wrap">
-            <a class="btn btn-primary" href="mailto:geral@balaustre.pt">Enviar Email</a>
+            <a class="btn btn-outline-custom" href="mailto:geral@balaustre.pt">Enviar Email</a>
             <a class="btn btn-outline-secondary" href="tel:+351963012695">Ligar Agora</a>
           </div>
         </div>
@@ -661,7 +630,7 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
                   <textarea id="mensagem" class="form-control" rows="3" placeholder="Escreva a sua mensagem..."></textarea>
                 </div>
                 <div class="col-12 d-grid">
-                  <button class="btn btn-primary" type="submit">Pedir Contacto</button>
+                  <button class="btn btn-outline-custom" type="submit">Pedir Contacto</button>
                 </div>
               </div>
               <small class="text-muted d-block mt-2">Ao enviar, concorda em ser contactado para efeitos comerciais.</small>
@@ -676,8 +645,7 @@ Apartamentos construídos com o cuidado em oferecer as melhores condições tér
   <!-- FOOTER -->
   <footer class="py-4">
     <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
-      <div class="small">IMOLUSTRE - Investimentos, Projectos e Construção Imobiliaria, Lda
-</div>
+      <div class="small">IMOLUSTRE - Investimentos, Projectos e Construção Imobiliaria, Lda</div>
       <div class="small">© <span id="year"></span> Jardins da Aurora</div>
     </div>
   </footer>
