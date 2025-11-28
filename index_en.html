@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jardins da Aurora – Apartments for Rent</title>
+  <meta name="description" content="Studio, one- and two-bedroom apartments (T0, T1 and T2) at Jardins da Aurora, Braga – new building with premium finishes, private garage and high energy efficiency." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Jardins da Aurora – Apartments for Rent" />
+  <meta property="og:description" content="Discover the building and the studio, one- and two-bedroom layouts. See photos, location and contacts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.jardinsdaaurora.pt/" />
+  <meta property="og:image" content="images/nome.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/txy4qoz.css">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+
+  <style>
+    :root {
+      --brand: #0ea5e9;
+      --brand-600: #75aba7;
+      --dark: #0b1220;
+      --muted: #64748b;
+      --bg: #598481;
+      --surface: #ffffff;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(2, 132, 199, .08);
+    }
+    .hero-title {
+      font-family: "alternate-gothic-extra-cond", sans-serif;
+      letter-spacing: 0.25em !important;
+    }
+
+    html { scroll-behavior: smooth; font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { color: #0f172a; }
+    input, button, select, textarea { font-family: inherit; }
+
+    /* NAVBAR */
+    .navbar { box-shadow: 0 2px 20px rgba(0,0,0,.05); backdrop-filter: saturate(140%) blur(6px); }
+    .navbar .nav-link { font-weight: 500; }
+    .navbar .nav-link.active, .navbar .nav-link:hover { color: var(--brand-600); }
+    .navbar-brand { letter-spacing: .2px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(180deg, rgba(15, 23, 42, .75), rgba(15, 23, 42, .55)), url('images/hero.jpg') center/cover no-repeat;
+      color: #fff; padding: 9rem 0 6rem;
+    }
+    .hero h1 { font-weight: 800; letter-spacing: -.02em; }
+    .hero p { color: #e5e7eb; }
+    .hero .btn-primary { background: var(--brand); border-color: var(--brand); box-shadow: var(--shadow); }
+    .hero .btn-primary:hover { background: var(--brand-600); border-color: var(--brand-600); }
+
+    /* SECTIONS */
+    section { padding: 4.5rem 0; }
+    .section-title { font-weight: 800; letter-spacing: -.01em; }
+    .text-muted { color: var(--muted) !important; }
+
+    .btn-outline-custom {
+      color: #75aba7;
+      border-color: #75aba7;
+    }
+
+    .btn-outline-custom:hover {
+      background-color: #75aba7;
+      color: white;
+      border-color: #75aba7;
+    }
+
+    /* FEATURES */
+    .features {
+      --fi-size: 48px;
+      --fi-icon: 32px;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .feature img {
+      width: 48px;
+      height: 48px;
+      display: block;
+      object-fit: contain;
+      flex: 0 0 48px;
+    }
+    .feature .ft-title { font-weight: 600; margin: 0; }
+    .feature .ft-sub { margin: 0; color: var(--muted); font-size: 0.925rem; }
+
+    /* APARTMENT TYPE CARDS */
+    .tipo-card { border-radius: var(--radius); }
+    .tipo-card img { aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius) 0 0 var(--radius); }
+    .tipo-card .card-body { padding: 2rem; }
+    @media (max-width: 991.98px) {
+      .tipo-card img { border-radius: var(--radius) var(--radius) 0 0; }
+    }
+    
+    /* GALLERY IN MODAL */
+    .modal-content { border-radius: 20px; overflow: hidden; }
+    .carousel-item img {
+      width: 100%;
+      height: 80vh;
+      object-fit: contain;
+      background-color: #ffffff;
+    }
+    /* BUILDING: carousel in section */
+    .edificio-carousel .carousel-inner { aspect-ratio: 4/3; max-height: 60vh; overflow: hidden; }
+    .edificio-carousel .carousel-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* MAP */
+    .map-embed { border:0; width:100%; height: 420px; border-radius: var(--radius); }
+
+    /* FLOATING CTA */
+    .cta-floating {
+      position: fixed; right: 20px; bottom: 20px; z-index: 1040;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    /* FOOTER */
+    footer { background: var(--bg); color: #cbd5e1; }
+    footer a { color: #e2e8f0; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* MOBILE (up to 768px) */
+    @media (max-width: 768px) {
+      body {
+        font-size: 0.95rem;
+      }
+
+      .navbar {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+      }
+
+      .navbar-brand img {
+        max-width: 150px;
+      }
+
+      .hero {
+        padding: 6rem 0 3rem;
+        text-align: center;
+      }
+
+      .hero .row,
+      .hero .col-lg-8 {
+        text-align: center;
+      }
+
+      .hero .d-flex {
+        justify-content: center;
+      }
+
+      .hero h1.display-5 {
+        font-size: 2rem;
+      }
+
+      .hero p.lead {
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      h2.section-title {
+        font-size: 1.4rem;
+      }
+
+      .tipo-card {
+        border-radius: var(--radius);
+      }
+
+      .tipo-card img {
+        width: 100%;
+        border-radius: var(--radius) var(--radius) 0 0;
+        object-fit: cover;
+      }
+
+      .tipo-card .card-body {
+        padding: 1.5rem;
+      }
+
+      .features {
+        --fi-size: 40px;
+        --fi-icon: 24px;
+      }
+
+      .feature {
+        align-items: flex-start;
+      }
+
+      .feature + .feature {
+        margin-top: 0.8rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem;
+      }
+
+      .table {
+        font-size: 0.85rem;
+      }
+    }
+
+  </style>
+
+  <!-- Structured Data (optional) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "BALAUSTRE - Construction and Real Estate Management, Lda",
+    "areaServed": "Lisbon",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo 123",
+      "addressLocality": "Lisbon",
+      "postalCode": "1000-000",
+      "addressCountry": "PT"
+    },
+    "email": "info@seudominio.pt",
+    "telephone": "+351 000 000 000"
+  }
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#inicio" style="padding:0;">
+        <img src="images/nome.png" alt="Jardins da Aurora" style="height:58px;max-width:180px;object-fit:contain;vertical-align:middle;" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#edificio">building</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#apartamentos" role="button" data-bs-toggle="dropdown" aria-expanded="false">apartments</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#t0">studio (T0)</a></li>
+              <li><a class="dropdown-item" href="#t1">one bedroom (T1)</a></li>
+              <li><a class="dropdown-item" href="#t2">two bedroom (T2)</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#localizacao">location</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contactos">contacts</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="nav-link fw-semibold text-uppercase" href="index.html" aria-label="Switch to Portuguese version">PT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <p class="lead mb-3">rent with comfort</p>
+          <h1 class="display-5 mb-3 hero-title">Your future home</h1>
+          <p class="lead mb-4">studio, one- and two-bedroom apartments (T0, T1 and T2) where you will truly feel at home.</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="#apartamentos" class="btn btn-outline-light btn-m">see apartment types</a>
+            <a href="#localizacao" class="btn btn-outline-light btn-m">see location</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- THE BUILDING -->
+  <section id="edificio">
+    <div class="container">
+      <div class="row align-items-start g-4">
+        <!-- Text + features -->
+        <div class="col-lg-7">
+          <h2 class="display-5 mb-3 hero-title">the building</h2>
+          <p class="mb-4">
+            A building designed and constructed to provide the highest possible comfort to those who will live here and call it home.
+            <br>
+            Layouts from studio (T0) to two-bedroom (T2), designed with small families in mind.
+            <br>
+            Apartments built with great care to offer excellent thermal and acoustic conditions, fully equipped with all appliances, air conditioning, private parking and a garden that welcomes those who seek tranquillity.
+          </p>
+
+          <!-- FEATURES -->
+          <div class="features">
+            <div class="row gy-3">
+              <div class="col-12">
+                <div class="feature">
+                  <img src="images/construcao 1.png" alt="New construction">
+                  <div>
+                    <p class="ft-title">new construction</p>
+                    <p class="ft-sub">Year: 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="feature">
+                  <img src="images/certificado.png" alt="Apartment types">
+                  <div>
+                    <p class="ft-title">apartment types</p>
+                    <p class="ft-sub">T0, T1 and T2</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="feature">
+                  <img src="images/parking.png" alt="Features">
+                  <div>
+                    <p class="ft-title">features</p>
+                    <p class="ft-sub">
+                      <u>Building:</u> private parking spaces, lift, private garden with fruit trees, thermal and acoustic insulation and A+ energy rating.<br>
+                      <u>Apartments:</u> air conditioning, induction hob, dishwasher, oven, microwave, fridge, extractor fan, washer-dryer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /FEATURES -->
+        </div>
+
+        <!-- Carousel -->
+        <div class="col-lg-5">
+          <div id="edificioCarousel" class="carousel slide edificio-carousel rounded-4 shadow-sm overflow-hidden" data-bs-ride="carousel" aria-label="Building gallery">
+            <div class="carousel-inner">
+
+              <!-- Photo 1 -->
+              <div class="carousel-item active">
+                <img src="images/edificio/out0001.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <!-- Photos 2 to 14 -->
+              <div class="carousel-item">
+                <img src="images/edificio/out0002.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0003.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0004.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0005.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0006.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0007.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0008.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0009.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0010.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0011.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0012.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0013.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+              <div class="carousel-item">
+                <img src="images/edificio/out0014.jpg" class="d-block w-100" alt="Building exterior" loading="lazy" decoding="async" />
+              </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#edificioCarousel" data-bs-slide="prev" aria-label="Previous">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#edificioCarousel" data-bs-slide="next" aria-label="Next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APARTMENTS / TYPES -->
+  <section id="apartamentos" class="bg-light">
+    <div class="container">
+      <h2 class="display-5 mb-3 hero-title">apartment types</h2>
+
+      <!-- T0 -->
+      <div id="t0" class="tipo-card card border-0 shadow-sm mb-4 overflow-hidden">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-md-6">
+            <img src="images/T0 - Camelia/0017.jpg" class="img-fluid" alt="Living area of the studio apartment" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-md-6 d-flex">
+            <div class="card-body p-4 d-flex flex-column justify-content-center">
+              <h3 class="h4">T0 – a single, cosy space</h3>
+              <p class="text-muted">
+                This layout, with a maximum capacity of two people, is ideal for those who are temporarily moving to Braga or starting independent life.
+              </p>
+              <ul class="mb-4">
+                <li>usable area: 38 m²</li>
+                <li>furnished apartment</li>
+                <li>air conditioning</li>
+                <li>equipped kitchen</li>
+                <li>washer-dryer</li>
+                <li>built-in wardrobe</li>
+                <li>small balcony</li>
+                <li>private parking space</li>
+              </ul>
+              <p>_______________</p>
+              <p class="text-muted">see photos:</p>
+              <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0A">
+                  Jasmim
+                </button>
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0B">Lírio</button>
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0C">Camélia</button>
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT0D">Magnólia</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T1 -->
+      <div id="t1" class="tipo-card card border-0 shadow-sm mb-4 overflow-hidden">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-md-6 order-md-2">
+            <img src="images/T1 - Margarida/0031.jpg" class="img-fluid" alt="Living area of the one-bedroom apartment" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-md-6 order-md-1 d-flex">
+            <div class="card-body p-4 d-flex flex-column justify-content-center">
+              <h3 class="h4">T1 – a small retreat</h3>
+              <p class="text-muted">
+                Ideal for a family looking for a more spacious home, with two aspects and plenty of natural light, this layout gives the feeling of a retreat on the top floor.
+              </p>
+              <ul class="mb-4">
+                <li>usable area: 51 m²</li>
+                <li>air conditioning</li>
+                <li>equipped kitchen</li>
+                <li>washer-dryer</li>
+                <li>built-in wardrobe</li>
+                <li>small balcony</li>
+                <li>private parking space</li>
+              </ul>
+              <div>
+                <p>_______________</p>
+                <p class="text-muted">see photos:</p>
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT1">Margarida</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div id="t2" class="tipo-card card border-0 shadow-sm overflow-hidden">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-md-6">
+            <img src="images/T2 - Papoila e Violeta/0057.jpg" class="img-fluid" alt="Living area of the two-bedroom apartment" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-md-6 d-flex">
+            <div class="card-body p-4 d-flex flex-column justify-content-center">
+              <h3 class="h4">T2 – space for the family</h3>
+              <p class="text-muted">Here a family can find the ideal solution for the home they have always dreamed of.</p>
+              <ul class="mb-4">
+                <li>usable area: 79 m²</li>
+                <li>equipped kitchen</li>
+                <li>washer-dryer</li>
+                <li>two bathrooms</li>
+                <li>built-in wardrobes</li>
+                <li>balconies</li>
+                <li>air conditioning</li>
+                <li>private parking</li>
+              </ul>
+              <p>_______________</p>
+              <p class="text-muted">see photos:</p>
+              <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT2A">Órquidea</button>
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT2B">Papoila</button>
+                <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#galeriaT2C">Violeta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY MODALS (Bootstrap Carousel) -->
+  <!-- T0 JASMIM -->
+  <div class="modal fade" id="galeriaT0A" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Gallery – Studio Jasmim</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselgaleriaT0A" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T0 - Jasmim/0001.jpg" class="d-block w-100" alt="Studio Jasmim – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T0 - Jasmim/0002.jpg" class="d-block w-100" alt="Studio Jasmim – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T0 - Jasmim/0003.jpg" class="d-block w-100" alt="Studio Jasmim – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T0 - Jasmim/0004.jpg" class="d-block w-100" alt="Studio Jasmim – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T0 - Jasmim/0005.jpg" class="d-block w-100" alt="Studio Jasmim – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T0 - Jasmim/0006.jpg" class="d-block w-100" alt="Studio Jasmim – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T0 - Jasmim/0007.jpg" class="d-block w-100" alt="Studio Jasmim – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T0 - Jasmim/0008.jpg" class="d-block w-100" alt="Studio Jasmim – photo 8" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/piso 1 - Jasmim&Lirio.jpeg" class="d-block w-100" alt="Plan – Jasmim & Lírio" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselgaleriaT0A" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselgaleriaT0A" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T0 B Lirio -->
+  <div class="modal fade" id="galeriaT0B" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Gallery – Studio Lírio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselgaleriaT0B" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T0 - Lirio/0009.jpg" class="d-block w-100" alt="Studio Lírio – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/0010.jpg" class="d-block w-100" alt="Studio Lírio – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/0011.jpg" class="d-block w-100" alt="Studio Lírio – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/0012.jpg" class="d-block w-100" alt="Studio Lírio – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/0013.jpg" class="d-block w-100" alt="Studio Lírio – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/0014.jpg" class="d-block w-100" alt="Studio Lírio – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/0015.jpg" class="d-block w-100" alt="Studio Lírio – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/0016.jpg" class="d-block w-100" alt="Studio Lírio – photo 8" /></div>
+              <div class="carousel-item"><img src="images/T0 - Lirio/piso 1 - Jasmim&Lirio.jpeg" class="d-block w-100" alt="Plan – Jasmim & Lírio" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselgaleriaT0B" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselgaleriaT0B" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T0 C Camelia -->
+  <div class="modal fade" id="galeriaT0C" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Studio Camélia – T0</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselgaleriaT0C" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T0 - Camelia/0017.jpg" class="d-block w-100" alt="Studio Camélia – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/0018.jpg" class="d-block w-100" alt="Studio Camélia – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/0019.jpg" class="d-block w-100" alt="Studio Camélia – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/0020.jpg" class="d-block w-100" alt="Studio Camélia – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/0021.jpg" class="d-block w-100" alt="Studio Camélia – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/0022.jpg" class="d-block w-100" alt="Studio Camélia – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/0023.jpg" class="d-block w-100" alt="Studio Camélia – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/PlantaCamelia.jpg" class="d-block w-100" alt="Studio Camélia – floor plan" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselgaleriaT0C" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselgaleriaT0C" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T0 D Magnolia -->
+  <div class="modal fade" id="galeriaT0D" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Studio Magnólia – T0</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselgaleriaT0D" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T0 - Magnolia/0024.jpg" class="d-block w-100" alt="Studio Magnólia – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T0 - Magnolia/0025.jpg" class="d-block w-100" alt="Studio Magnólia – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T0 - Magnolia/0026.jpg" class="d-block w-100" alt="Studio Magnólia – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T0 - Magnolia/0027.jpg" class="d-block w-100" alt="Studio Magnólia – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T0 - Magnolia/0028.jpg" class="d-block w-100" alt="Studio Magnólia – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T0 - Magnolia/0029.jpg" class="d-block w-100" alt="Studio Magnólia – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T0 - Magnolia/0030.jpg" class="d-block w-100" alt="Studio Magnólia – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T0 - Camelia/PlantaCamelia.jpg" class="d-block w-100" alt="Studio floor plan" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselgaleriaT0D" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselgaleriaT0D" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T1 -->
+  <div class="modal fade" id="galeriaT1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Apartment Margarida – T1</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselT1" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T1 - Margarida/0031.jpg" class="d-block w-100" alt="T1 Margarida – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0032.jpg" class="d-block w-100" alt="T1 Margarida – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0033.jpg" class="d-block w-100" alt="T1 Margarida – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0034.jpg" class="d-block w-100" alt="T1 Margarida – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0035.jpg" class="d-block w-100" alt="T1 Margarida – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0036.jpg" class="d-block w-100" alt="T1 Margarida – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0037.jpg" class="d-block w-100" alt="T1 Margarida – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0038.jpg" class="d-block w-100" alt="T1 Margarida – photo 8" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/0039.jpg" class="d-block w-100" alt="T1 Margarida – photo 9" /></div>
+              <div class="carousel-item"><img src="images/T1 - Margarida/piso 3 t1.jpeg" class="d-block w-100" alt="T1 Margarida – floor plan" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselT1" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselT1" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T2 A -->
+  <div class="modal fade" id="galeriaT2A" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Apartment Órquidea – T2</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselgaleriaT2A" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T2 - Orquidea/0040a.jpg" class="d-block w-100" alt="T2 Órquidea – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0041.jpg" class="d-block w-100" alt="T2 Órquidea – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0042.jpg" class="d-block w-100" alt="T2 Órquidea – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0043.jpg" class="d-block w-100" alt="T2 Órquidea – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0044.jpg" class="d-block w-100" alt="T2 Órquidea – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0045.jpg" class="d-block w-100" alt="T2 Órquidea – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0046.jpg" class="d-block w-100" alt="T2 Órquidea – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0047.jpg" class="d-block w-100" alt="T2 Órquidea – photo 8" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0048.jpg" class="d-block w-100" alt="T2 Órquidea – photo 9" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0049.jpg" class="d-block w-100" alt="T2 Órquidea – photo 10" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0050.jpg" class="d-block w-100" alt="T2 Órquidea – photo 11" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0051.jpg" class="d-block w-100" alt="T2 Órquidea – photo 12" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0052.jpg" class="d-block w-100" alt="T2 Órquidea – photo 13" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0053.jpg" class="d-block w-100" alt="T2 Órquidea – photo 14" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/0054.jpg" class="d-block w-100" alt="T2 Órquidea – photo 15" /></div>
+              <div class="carousel-item"><img src="images/T2 - Orquidea/piso 3 t2.jpeg" class="d-block w-100" alt="T2 Órquidea – floor plan" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselgaleriaT2A" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselgaleriaT2A" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T2 B -->
+  <div class="modal fade" id="galeriaT2B" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Apartment Papoila – T2</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselgaleriaT2B" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T2 - Papoila e Violeta/0055.jpg" class="d-block w-100" alt="T2 Papoila – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0056.jpg" class="d-block w-100" alt="T2 Papoila – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0057.jpg" class="d-block w-100" alt="T2 Papoila – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0058.jpg" class="d-block w-100" alt="T2 Papoila – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0059.jpg" class="d-block w-100" alt="T2 Papoila – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0060.jpg" class="d-block w-100" alt="T2 Papoila – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0061.jpg" class="d-block w-100" alt="T2 Papoila – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0062.jpg" class="d-block w-100" alt="T2 Papoila – photo 8" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0063.jpg" class="d-block w-100" alt="T2 Papoila – photo 9" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0064.jpg" class="d-block w-100" alt="T2 Papoila – photo 10" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0065.jpg" class="d-block w-100" alt="T2 Papoila – photo 11" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0066.jpg" class="d-block w-100" alt="T2 Papoila – photo 12" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0067.jpg" class="d-block w-100" alt="T2 Papoila – photo 13" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0068.jpg" class="d-block w-100" alt="T2 Papoila – photo 14" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/piso 1 - T2.jpeg" class="d-block w-100" alt="T2 Papoila – floor plan" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselgaleriaT2B" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselgaleriaT2B" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- T2 C -->
+  <div class="modal fade" id="galeriaT2C" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Apartment Violeta – T2</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselgaleriaT2C" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active"><img src="images/T2 - Papoila e Violeta/0055.jpg" class="d-block w-100" alt="T2 Violeta – photo 1" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0056.jpg" class="d-block w-100" alt="T2 Violeta – photo 2" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0057.jpg" class="d-block w-100" alt="T2 Violeta – photo 3" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0058.jpg" class="d-block w-100" alt="T2 Violeta – photo 4" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0059.jpg" class="d-block w-100" alt="T2 Violeta – photo 5" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0060.jpg" class="d-block w-100" alt="T2 Violeta – photo 6" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0061.jpg" class="d-block w-100" alt="T2 Violeta – photo 7" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0062.jpg" class="d-block w-100" alt="T2 Violeta – photo 8" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0063.jpg" class="d-block w-100" alt="T2 Violeta – photo 9" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0064.jpg" class="d-block w-100" alt="T2 Violeta – photo 10" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0065.jpg" class="d-block w-100" alt="T2 Violeta – photo 11" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0066.jpg" class="d-block w-100" alt="T2 Violeta – photo 12" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/0067.jpg" class="d-block w-100" alt="T2 Violeta – photo 13" /></div>
+              <div class="carousel-item"><img src="images/T2 - Papoila e Violeta/piso 1 - T2.jpeg" class="d-block w-100" alt="T2 Violeta – floor plan" /></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselgaleriaT2C" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselgaleriaT2C" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCATION -->
+  <section id="localizacao">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h2 class="display-5 mb-3 hero-title">location</h2>
+          <p class="mb-3"><strong>Rua de Santo Adrião nº 5A, S. José de S. Lázaro | 4715-048 Braga</strong></p>
+          <p class="text-muted">
+            Located on Rua de Santo Adrião, this building is in a quiet area, well served by public transport, local shops, services and schools. On the hillside of Monte do Picoto, it is just a few minutes’ walk from Avenida da Liberdade and São João da Ponte Park.
+          </p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-outline-secondary" target="_blank" rel="noopener" href="https://maps.app.goo.gl/tCCGqEAgLWqjLULk7">open in Google Maps</a>
+            <a class="btn btn-outline-custom" href="#contactos">contact us</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <iframe
+            class="map-embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2986.2984413546696!2d-8.41589522423829!3d41.54113498644488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24ff00752e92b3%3A0xfb6c52e33da161a8!2sJardins%20da%20Aurora!5e0!3m2!1spt-PT!2spt!4v1764327937682!5m2!1spt-PT!2spt" 
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Location map">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section id="contactos" class="bg-light">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="display-5 mb-3 hero-title">contacts</h2>
+          <p class="mb-1"><strong>Phone:</strong> <a href="tel:+351963012695">+351 963 012 695</a> </p>
+          <p class="mb-1"><strong>Email:</strong> <a href="mailto:geral@balaustre.pt">geral@balaustre.pt</a></p>
+          <p class="mb-0"><strong>Address:</strong> Rua S. Sebastião - Maximinos, 27<br>4700-043 Braga</p>
+          <div class="d-flex gap-2 mt-3 flex-wrap">
+            <a class="btn btn-outline-custom" href="mailto:geral@balaustre.pt">send email</a>
+            <a class="btn btn-outline-secondary" href="tel:+351963012695">call now</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 bg-white rounded-4 shadow-sm">
+            <h3 class="h5 mb-2">MESSAGE</h3>
+            <p class="text-muted">Prefer to be contacted? Leave your email and we will get back to you.</p>
+            <form onsubmit="event.preventDefault(); window.location.href='mailto:geral@balaustre.pt?subject=Contact%20Jardins%20da%20Aurora&body=Hello,%20I%20would%20like%20more%20information%20about%20the%20apartments.';">
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <label class="form-label visually-hidden" for="nome">Name</label>
+                  <input id="nome" type="text" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label visually-hidden" for="email">Email</label>
+                  <input id="email" type="email" class="form-control" placeholder="Your email" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label visually-hidden" for="mensagem">Message</label>
+                  <textarea id="mensagem" class="form-control" rows="3" placeholder="Write your message..."></textarea>
+                </div>
+                <div class="col-12 d-grid">
+                  <button class="btn btn-outline-custom" type="submit">request contact</button>
+                </div>
+              </div>
+              <small class="text-muted d-block mt-2">By sending, you agree to be contacted for commercial purposes.</small>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="small">IMOLUSTRE - Investimentos, Projectos e Construção Imobiliaria, Lda.</div>
+      <div class="small">© <span id="year"></span> JARDINS DA AURORA</div>
+    </div>
+  </footer>
+
+
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    // Update year in footer
+    (function(){
+      var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    })();
+
+    // Highlight active navbar link as section becomes visible
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('.navbar a.nav-link, .dropdown-menu .dropdown-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').replace('#','');
+            if (href === id) link.classList.add('active');
+          });
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+</body>
+</html>
